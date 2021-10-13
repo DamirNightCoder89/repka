@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface InspectorService {
 
-    ExcRates getCurrentExcanges();
-
-    ExcRates get
-
-    List<String> getCurrencies();
+//    ExcRates getCurrentExcanges();
+//
+//    ExcRates get
+//
+//    List<String> getCurrencies();
 
 
 
