@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
-@RestControllerAdvice
+//@RestControllerAdvice
 public class RateNotFoundExceptionAdvice {
 
-    @ResponseBody
-    @ExceptionHandler(FeignException.BadRequest.class)
-//    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String rateNotFoundHandler(FeignException e, HttpServletResponse response) {
-        System.out.println("erooooooooooooooooooooooooooooooooooooooooooooooooooo.......................................!!!!!!!!!!!!!!!!!!!!");
-        response.setStatus(e.status());
-        return e.contentUTF8().toString();
-    }
+//    @ResponseBody
+//    @ExceptionHandler(FeignException.class)
+////    @ResponseStatus(HttpStatus.NOT_FOUND)
+//    public String rateNotFoundHandler(FeignException e, HttpServletResponse response) {
+//        System.out.println("erooooooooooooooooooooooooooooooooooooooooooooooooooo.......................................!!!!!!!!!!!!!!!!!!!!");
+//        response.setStatus(e.status());
+//        return e.contentUTF8().toString();
+//    }
 }
