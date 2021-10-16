@@ -1,6 +1,7 @@
 package com.someday.somework.feign.clients;
 
 import com.someday.somework.feign.fallbacks.RateClientFallback;
+import com.someday.somework.feign.fallbacks.RateHystrixClientFallbackFactory;
 import com.someday.somework.feign.model.ExcRates;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
-@FeignClient(name="exchange-rates-client", url = "${repka.money.url}", fallback = RateClientFallback.class) //
+@FeignClient(name="exchange-rates-client", url = "${repka.money.url}", fallbackFactory = RateHystrixClientFallbackFactory.class) //fallback = RateClientFallback.class
 public interface ExchangeRatesClient {
 
     @GetMapping("/latest.json")

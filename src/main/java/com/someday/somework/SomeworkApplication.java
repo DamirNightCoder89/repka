@@ -7,7 +7,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-//@EnableCircuitBreaker
 public class SomeworkApplication {
 
 	public static void main(String[] args) {
@@ -18,8 +17,6 @@ public class SomeworkApplication {
 //	public ErrorDecoder errorDecoder() {
 //		return new CustomErrorDecoder();
 //	}
-
-
 
 }
 
