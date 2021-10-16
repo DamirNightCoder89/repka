@@ -13,10 +13,10 @@ public class RateNotFoundExceptionAdvice {
 
 //    @ResponseBody
 //    @ExceptionHandler(FeignException.class)
-////    @ResponseStatus(HttpStatus.NOT_FOUND)
+//    @ResponseStatus(HttpStatus.NOT_FOUND)
 //    public String rateNotFoundHandler(FeignException e, HttpServletResponse response) {
 //        System.out.println("erooooooooooooooooooooooooooooooooooooooooooooooooooo.......................................!!!!!!!!!!!!!!!!!!!!");
 //        response.setStatus(e.status());
-//        return e.contentUTF8().toString();
+//        return e.getMessage().toString();
 //    }
 }
