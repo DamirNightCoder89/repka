@@ -1,11 +1,22 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Rates</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-    <h2 th:text="${hello}"/>
+    <h2>Current base currency by default for free usege <span th:text="${currentRates.base}" /></h2>
+    <p style="color:red">Attention! all currencies will be calculated against it</p>
+    <select id="bob">
+        <option value="">Select money currency dear!</option>
+        <option th:each="rate : ${currentRates.rates}" th:value="${rate.key}" th:text="${rate.key}"></option>
+    </select>
+    <p style="color:red" th:text="${currentRates.error}"> </p>
+    <div id="box">
+    </div>
 
+    <script th:src="@{/bob.js}"></script>
 </body>
 </html>

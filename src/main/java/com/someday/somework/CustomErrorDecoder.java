@@ -1,10 +1,5 @@
 package com.someday.somework;
 
-import com.someday.somework.exeptions.RateNotFoundException;
-import feign.Response;
-import feign.codec.ErrorDecoder;
-import org.springframework.http.HttpStatus;
-
 public class CustomErrorDecoder  { // implements ErrorDecoder
 
 //    @Override

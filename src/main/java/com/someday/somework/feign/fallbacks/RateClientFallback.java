@@ -8,15 +8,14 @@ import java.util.Optional;
 
 @Component
 public class RateClientFallback implements ExchangeRatesClient {
+
     @Override
     public Optional<ExcRates> getCurrentRates(String appid) {
-        System.out.println("Fallback work");
         return Optional.empty();
     }
 
     @Override
-    public String getString() {
-        System.out.println("Fallback work");
-        return "null";
+    public Optional<ExcRates> getYesterdaysRates(String appid, String date) {
+        return Optional.empty();
     }
 }

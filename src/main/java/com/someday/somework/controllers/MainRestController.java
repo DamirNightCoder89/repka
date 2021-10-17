@@ -1,39 +1,33 @@
 package com.someday.somework.controllers;
 
-import com.someday.somework.feign.clients.ExchangeRatesClient;
-import com.someday.somework.feign.model.ExcRates;
+import com.someday.somework.feign.model.GyphiLink;
+import com.someday.somework.services.InspectorBobWorker;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
 
 @RestController
+@RequestMapping("/rest")
 public class MainRestController {
 
-    String APPID = "fwffsdf";
+    @Autowired
+    private Environment env;
 
     @Autowired
-    private ExchangeRatesClient excClient;
+    private InspectorBobWorker inspectorBobWorker;
 
-    @GetMapping("/latest.json")
-    Optional<ExcRates> getCurrentRates() {
-
-        return excClient.getCurrentRates(APPID);
+    @GetMapping("/ready")
+    GyphiLink getGyphiLinkReady() {
+        return inspectorBobWorker.getGyphi(env.getProperty("RATE_API_KEY"));
     }
 
-    @GetMapping("/test")
-    String test() {
-
-        return excClient.getString();
+    @GetMapping("/ready/{currency}")
+    GyphiLink getGyphiLinkReady(@PathVariable String currency) {
+        return inspectorBobWorker.getGyphi(currency, env.getProperty("PYGI_API_KEY"), env.getProperty("RATE_API_KEY"));
     }
-
-//    @GetMapping("/historical/{date}.json")
-//    ExcRates getНesterdaysRate(@RequestParam("appid") String appid,
-//                               @PathVariable String date) {
-//
-//    }
-
 
 }
