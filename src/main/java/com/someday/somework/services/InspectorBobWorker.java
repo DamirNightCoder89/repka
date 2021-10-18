@@ -31,7 +31,6 @@ public class InspectorBobWorker implements InspectorBob {
     @Override
     @Cacheable(value = "yesterdays", unless = "#result.isEmpty()", key = "#data") //
     public ExcRates getYesterdaysRates(String api_id, String data) {
-        System.out.println("fetch from feign");
         return excClient.getYesterdaysRates(api_id, data)
                 .orElse(ExcRates.ErrorExcRateBuilder.createExcRates("Could connect to dates, maybe your internet is turned off", "500"));
     }
@@ -61,9 +60,6 @@ public class InspectorBobWorker implements InspectorBob {
     private String checkRateDif(String currency, ExcRates current, ExcRates yesterday) {
         Double yesterdays_weight = Double.valueOf(yesterday.getRates().get(currency))/Double.valueOf(yesterday.getRates().get(forСurrency));
         Double current_weight = Double.valueOf(current.getRates().get(currency))/Double.valueOf(current.getRates().get(forСurrency));
-        if (yesterdays_weight == null || current_weight == null) {
-            return "problem";
-        }
         if (yesterdays_weight > current_weight) {
             return "broke";
         } else if (yesterdays_weight < current_weight) {

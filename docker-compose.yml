@@ -1,0 +1,15 @@
+version: '3'
+services:
+  gyphi:
+    environment:
+      PYGI_API_KEY: $PYGI_API_KEY
+      RATE_API_KEY: $RATE_API_KEY
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "20"
+

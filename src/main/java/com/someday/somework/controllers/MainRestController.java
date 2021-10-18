@@ -22,7 +22,7 @@ public class MainRestController {
 
     @GetMapping("/ready")
     GyphiLink getGyphiLinkReady() {
-        return inspectorBobWorker.getGyphi(env.getProperty("RATE_API_KEY"));
+        return inspectorBobWorker.getGyphi(env.getProperty("PYGI_API_KEY"));
     }
 
     @GetMapping("/ready/{currency}")
