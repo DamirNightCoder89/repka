@@ -1,6 +1,8 @@
 # repka
 gradle build
+# set variable
 set variable api keys in env file
+# start
 docker-compose up
 
 Тесты сделать не успел (в условии написно что срок неделя, 
