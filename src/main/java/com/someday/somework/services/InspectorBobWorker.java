@@ -52,7 +52,6 @@ public class InspectorBobWorker implements InspectorBob {
         } else if (!ysterdaysRates.getRates().containsKey(currency)) {
             return GyphiLink.GyphiLinkBuilder.getGyphiLink("There is no currency in yesterdays currency list", "404");
         }
-        System.out.println(forСurrency);
         return gyphiClient.getGiphyLink(giphy_api_id, checkRateDif(currency, currentRates, ysterdaysRates))
                 .orElse(GyphiLink.GyphiLinkBuilder.getGyphiLink("something is wrong with the network", "500"));
     }

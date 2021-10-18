@@ -21,7 +21,6 @@ public class MainWebController {
     @GetMapping("/")
     public String getCurrentRates(Model model) {
 
-        System.out.println(env.getProperty("RATE_API_KEY"));
         ExcRates excRates = inspectorBobWorker.getCurrentRates(env.getProperty("RATE_API_KEY"), SimpleDateForBob.getCurrentDate());
         model.addAttribute("currentRates", excRates);
         return "rates";
